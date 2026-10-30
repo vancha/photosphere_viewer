@@ -5,13 +5,6 @@ to look, built-in file picker, no CLI arguments required.
 
 ![Photosphere Viewer screenshot](docs/screenshot.png)
 
-## Why this exists
-
-My real estate broker took 360° photos of a house and then just... wouldn't
-hand them over. Fine — but the Linux photosphere viewers I could find were
-either abandoned or only handled a single image with no gallery. So: a
-weekend project. It somewhat got out of hand.
-
 ## Features
 
 - **Drag to look around**, updating live while you drag, not just on release
