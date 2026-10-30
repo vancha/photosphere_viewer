@@ -1,0 +1,13 @@
+[package]
+name = "iced_photosphere"
+version = "0.1.0"
+edition = "2024"
+description = "An iced widget for drag-to-look-around viewing of equirectangular (360-degree) photos, rendered as a textured sphere on the GPU."
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+iced = { version = "0.14", default-features = false, features = ["wgpu"] }
+wgpu = "27"
+image = { version = "0.25", default-features = false }
+bytemuck = { version = "1", features = ["derive"] }
+glam = "0.29"

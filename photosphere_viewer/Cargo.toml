@@ -1,0 +1,39 @@
+[workspace]
+members = ["iced_photosphere"]
+
+[package]
+name = "photosphere_viewer"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "make_test_pattern"
+path = "src/bin/make_test_pattern.rs"
+
+[dependencies]
+image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
+rayon = "1"
+iced = { version = "0.14", features = ["image", "tokio"] }
+tokio = { version = "1", features = ["rt"] }
+rfd = "0.17"
+iced_photosphere = { path = "iced_photosphere" }
+
+# Testing whether bumping iced_wgpu's hardcoded `desired_maximum_frame_latency`
+# (1 -> 2) reduces the gray flicker seen while live-resizing the GPU shader
+# viewer. Points at a local clone of iced-rs/iced, tag 0.14.0, with that one
+# line changed — see ../iced-patched/wgpu/src/window/compositor.rs. Every
+# interdependent iced crate has to be patched together, not just iced_wgpu —
+# otherwise Cargo ends up with two incompatible copies of iced_core et al.
+[patch.crates-io]
+iced = { path = "../iced-patched" }
+iced_core = { path = "../iced-patched/core" }
+iced_debug = { path = "../iced-patched/debug" }
+iced_futures = { path = "../iced-patched/futures" }
+iced_graphics = { path = "../iced-patched/graphics" }
+iced_program = { path = "../iced-patched/program" }
+iced_renderer = { path = "../iced-patched/renderer" }
+iced_runtime = { path = "../iced-patched/runtime" }
+iced_tiny_skia = { path = "../iced-patched/tiny_skia" }
+iced_wgpu = { path = "../iced-patched/wgpu" }
+iced_widget = { path = "../iced-patched/widget" }
+iced_winit = { path = "../iced-patched/winit" }
