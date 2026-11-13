@@ -20,6 +20,8 @@ that lists these live from the actual bindings.)
 ## Running it
 
 ```
+git clone https://github.com/vancha/photosphere_viewer.git
+cd photosphere_viewer
 cargo run --release
 ```
 
