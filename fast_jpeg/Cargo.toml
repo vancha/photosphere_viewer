@@ -1,0 +1,16 @@
+[package]
+name = "fast_jpeg"
+version = "0.1.0"
+edition = "2024"
+description = "A narrowly-scoped, personal-use baseline JPEG decoder that decodes straight to RGBA, parallelized with rayon."
+
+[dependencies]
+rayon = "1"
+
+[dev-dependencies]
+image = { version = "0.25", default-features = false, features = ["jpeg"] }
+
+[[bench]]
+name = "decode_bench"
+path = "benches/decode_bench.rs"
+harness = false

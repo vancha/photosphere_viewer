@@ -1,0 +1,20 @@
+[workspace]
+members = ["iced_photosphere", "fast_jpeg"]
+
+[package]
+name = "photosphere_viewer"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
+tokio = { version = "1", features = ["rt"] }
+url = "2"
+open = "5.3.3"
+iced_photosphere = { path = "iced_photosphere" }
+
+[dependencies.libcosmic]
+git = "https://github.com/pop-os/libcosmic"
+rev = "95236a944bfd51c63a2fc65fe50a592c47168d40"
+default-features = false
+features = ["winit", "wgpu", "wayland", "tokio", "xdg-portal", "about"]

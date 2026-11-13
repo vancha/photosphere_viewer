@@ -1,0 +1,14 @@
+[package]
+name = "iced_photosphere"
+version = "0.1.0"
+edition = "2024"
+description = "A drag-to-look-around viewer widget for equirectangular (360-degree) photos, rendered as a textured sphere on the GPU. Built for libcosmic's iced."
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+# Uses libcosmic's iced fork (and the wgpu version it re-exports), so the
+# widget and the app always agree on one copy of iced.
+libcosmic = { git = "https://github.com/pop-os/libcosmic", rev = "95236a944bfd51c63a2fc65fe50a592c47168d40", default-features = false, features = ["winit", "wgpu", "wayland", "tokio"] }
+image = { version = "0.25", default-features = false }
+bytemuck = { version = "1", features = ["derive"] }
+glam = "0.29"
